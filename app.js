@@ -3,7 +3,6 @@ const todoButton = document.querySelector("#todo-button")
 const todoList = document.querySelector("#todo-list")
 
 todoButton.addEventListener("click", addTodo)
-// todoList.addEventListener("click", deleteOrCheckTodo)
 
 function addTodo(event){
     event.preventDefault()
