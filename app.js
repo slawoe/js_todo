@@ -16,21 +16,19 @@ function addTodo(event){
     const completedButton = document.createElement("button")
     completedButton.innerHTML = '<i class="fas fa-check"></i>'
     completedButton.classList.add("btn-complete")
-    completedButton.addEventListener("click", checkTodo)
-    function checkTodo(event){
+    completedButton.addEventListener("click", function checkTodo(){
         const todo = completedButton.parentElement
         todo.classList.toggle("completed")
-        }    
+        })    
     todoDiv.appendChild(completedButton)
     const trashButton = document.createElement("button")
     trashButton.innerHTML = '<i class="fas fa-trash"></i>'
     trashButton.classList.add("btn-trash")
-    trashButton.addEventListener("click", deleteTodo)
-    function deleteTodo(){
+    trashButton.addEventListener("click", function deleteTodo(){
         const todo = trashButton.parentElement
           todo.classList.add("fall")
-          todo.remove()
-          }
+          todo.addEventListener("transitionend", function(){todo.remove()})
+          })
     todoDiv.appendChild(trashButton)
     todoList.appendChild(todoDiv)
     todoInput.value = ""
