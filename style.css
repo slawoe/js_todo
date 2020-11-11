@@ -8,7 +8,7 @@ html {
   font-family: "Poppins", sans-serif;
 }
 body {
-  background-image: linear-gradient(120deg, #f6d365, #d88771);
+  background-image: linear-gradient(120deg, #2c29eb, #04010c);
   color: white;
   min-height: 100vh;
 }
@@ -78,4 +78,8 @@ form button:hover {
 }
 .btn-complete {
   background: rgb(90, 7, 90);
+}
+.fa-trash,
+.fa-check {
+  pointer-events: none;
 }
