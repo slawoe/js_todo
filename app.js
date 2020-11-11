@@ -3,8 +3,7 @@ const todoButton = document.querySelector("#todo-button")
 const todoList = document.querySelector("#todo-list")
 
 todoButton.addEventListener("click", addTodo)
-todoList.addEventListener("click", deleteTodo)
-todoList.addEventListener("click", checkTodo)
+// todoList.addEventListener("click", deleteOrCheckTodo)
 
 function addTodo(event){
     event.preventDefault()
@@ -17,27 +16,20 @@ function addTodo(event){
     const completedButton = document.createElement("button")
     completedButton.innerHTML = '<i class="fas fa-check"></i>'
     completedButton.classList.add("btn-complete")
+    completedButton.addEventListener("click", function checkTodo(){
+        const todo = completedButton.parentElement
+        todo.classList.toggle("completed")
+        })    
     todoDiv.appendChild(completedButton)
     const trashButton = document.createElement("button")
     trashButton.innerHTML = '<i class="fas fa-trash"></i>'
     trashButton.classList.add("btn-trash")
+    trashButton.addEventListener("click", function deleteTodo(){
+        const todo = trashButton.parentElement
+          todo.classList.add("fall")
+          todo.addEventListener("transitionend", function(){todo.remove()})
+          })
     todoDiv.appendChild(trashButton)
     todoList.appendChild(todoDiv)
     todoInput.value = ""
-}
-
-function deleteTodo(event){
-    const item = event.target
-    if(item.classList[0] === "btn-trash"){
-    const todo = item.parentElement
-    todo.remove()
-    }
-}
-
-function checkTodo(event){
-    const item = event.target
-    if(item.classList[0] === "btn-complete"){
-    const todo = item.parentElement
-    todo.classList.toggle("completed")
-    }
 }
