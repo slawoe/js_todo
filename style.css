@@ -31,13 +31,13 @@ form button {
   background: white;
 }
 form button {
-  color: rgb(5, 71, 5);
+  color: rgb(9, 122, 9);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.7s ease;
 }
 form button:hover {
   color: white;
-  background: rgb(5, 71, 5);
+  background: rgb(9, 122, 9);
 }
 #todo-container {
   display: flex;
@@ -116,7 +116,7 @@ select {
   right: 0;
   padding: 1rem;
   pointer-events: none;
-  transition: all 0.9s ease;
+  transition: all 0.7s ease;
 }
 .select:hover::after {
   background: #ff6f47;
