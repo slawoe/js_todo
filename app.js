@@ -30,6 +30,7 @@ function addTodo(event){
     trashButton.addEventListener("click", function deleteTodo(){
         const todo = trashButton.parentElement
           todo.classList.add("fall")
+          deleteTodos(todo)
           todo.addEventListener("transitionend", function(){todo.remove()})
           })
     todoDiv.appendChild(trashButton)
@@ -100,10 +101,23 @@ function getTodos() {
     trashButton.addEventListener("click", function deleteTodo(){
         const todo = trashButton.parentElement
           todo.classList.add("fall")
+          deleteTodos(todo)
           todo.addEventListener("transitionend", function(){todo.remove()})
           })
     todoDiv.appendChild(trashButton)
     todoList.appendChild(todoDiv)
     todoInput.value = ""
     })
+}
+
+function deleteTodos(todo) {
+    let todos;
+    if(localStorage.getItem("todos") === null){
+        todos = [];
+    }else{
+        todos = JSON.parse(localStorage.getItem("todos"));
+    }
+    const todoIndex = todo.children[0].innerText
+    todos.splice(todos.indexOf(todoIndex), 1)
+    localStorage.setItem("todos", JSON.stringify(todos))
 }
