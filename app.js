@@ -3,7 +3,7 @@ const todoButton = document.querySelector("#todo-button")
 const todoList = document.querySelector("#todo-list")
 const filterOption = document.querySelector("#filter-todo")
 
-document.addEventListener("DOMContentLoaded", getTodos)
+document.addEventListener("DOMContentLoaded", getStorageTodos)
 todoButton.addEventListener("click", addTodo)
 filterOption.addEventListener("change", filterTodo)
 
@@ -30,7 +30,7 @@ function addTodo(event){
     trashButton.addEventListener("click", function deleteTodo(){
         const todo = trashButton.parentElement
           todo.classList.add("fall")
-          deleteTodos(todo)
+          deleteStorageTodos(todo)
           todo.addEventListener("transitionend", function(){todo.remove()})
           })
     todoDiv.appendChild(trashButton)
@@ -73,7 +73,7 @@ function saveLocalTodos(todo){
     localStorage.setItem("todos", JSON.stringify(todos))
 }
 
-function getTodos() {
+function getStorageTodos() {
     let todos;
     if(localStorage.getItem("todos") === null){
         todos = [];
@@ -101,7 +101,7 @@ function getTodos() {
     trashButton.addEventListener("click", function deleteTodo(){
         const todo = trashButton.parentElement
           todo.classList.add("fall")
-          deleteTodos(todo)
+          deleteStorageTodos(todo)
           todo.addEventListener("transitionend", function(){todo.remove()})
           })
     todoDiv.appendChild(trashButton)
@@ -110,7 +110,7 @@ function getTodos() {
     })
 }
 
-function deleteTodos(todo) {
+function deleteStorageTodos(todo) {
     let todos;
     if(localStorage.getItem("todos") === null){
         todos = [];
